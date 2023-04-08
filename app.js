@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 const homepage = document.getElementById('homepage');
 const content = document.querySelector('.content');
 const headerBtns = document.querySelector('.header-btns');
@@ -436,4 +436,3 @@ let year = document.querySelector("#year");
 $(document).ready(function () {
   year.innerText = new Date().getFullYear();
 });
->>>>>>> d6221f87bfb67875f4f8d6343d0655478faba843
