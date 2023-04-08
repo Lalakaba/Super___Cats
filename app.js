@@ -2,7 +2,6 @@ const homepage = document.getElementById('homepage');
 const content = document.querySelector('.content');
 const headerBtns = document.querySelector('.header-btns');
 let store = window.localStorage;
-let defaultLink ="/images/default.jpg";
 
 
 const generateCard = (cat) => {
