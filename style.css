@@ -192,9 +192,9 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    width: 600px;
-    height: 700px;
-    position: absolute;
+    width: 550px;
+    height: 530px;
+    position: fixed;
     color:#ffffff;
     top: 20%;
     left: 30%;
@@ -211,14 +211,14 @@
   .create-edit-modal-title {
     display: flex;
     align-self: center;
-    margin:5% auto;
+    margin:2% auto;
 }
 
   .modal-form > label {
     font-size:18px;
     font-weight: 700;
     display: inline-block;
-    padding: 15px 0 15px 0;
+    padding: 10px 0 10px 0;
     opacity: 0.7;
     cursor: pointer;
     position: relative;
@@ -251,8 +251,8 @@
   .button-form-submit {
     display: block;
     width: 200px;
-    height: 100px;
-    margin:20px auto;
+    height: 65px;
+    margin:0 auto;
     background-image: url("/images/OK.gif");
     background-color: #000000;
     background-size:contain;
@@ -279,7 +279,7 @@
     background-color: rgba(0, 0, 0, 0.8);
     width: 100%;
     height: 100%;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 100;
