@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const config = {
     baseUrl: 'https://cats.petiteweb.dev/api/single/lalakaba/',
 };
@@ -126,5 +125,4 @@ class Api {
     };
 }
 
->>>>>>> d6221f87bfb67875f4f8d6343d0655478faba843
 const api = new Api(config);
