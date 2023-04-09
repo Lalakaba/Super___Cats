@@ -61,3 +61,7 @@ class Api {
     };
 }
 
+<<<<<<< HEAD
+=======
+const api = new Api(config);
+>>>>>>> 6e01ad449ce0d0ce60cd4f3c3f67603b89e81dd6
