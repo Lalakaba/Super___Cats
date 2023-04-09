@@ -1,5 +1,5 @@
 
-onst homepage = document.getElementById('page');
+const page = document.getElementById('page');
 const content = document.querySelector('.content');
 const headerBtns = document.querySelector('.header-btns');
 let store = window.localStorage;
