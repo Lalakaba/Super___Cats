@@ -1,5 +1,5 @@
 
-onst homepage = document.getElementById('page');
+const homepage = document.getElementById('page');
 const content = document.querySelector('.content');
 const headerBtns = document.querySelector('.header-btns');
 let store = window.localStorage;
@@ -217,4 +217,3 @@ let year = document.querySelector("#year");
 $(document).ready(function () {
   year.innerText = new Date().getFullYear();
 });
->>>>>>> 7a27959d9fe1b5c41263b83c647de41e6121341b
