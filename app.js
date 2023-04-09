@@ -7,12 +7,12 @@ let store = window.localStorage;
 const generateCard = (cat) => {
     return `<div class='cat-card'>
     <div class="cat-card-image">
-    <img src=${cat.image !== '' ? cat.image : "/images/default.gif"} alt="default" />
+    <img src=${cat.image !== '' ? cat.image : "images/default.gif"} alt="default" />
     </div>
     <p class="cat-name">${cat.name}</p>
     <p class="cat-description">${cat.description}</p>
     <div class="${cat.favorite ? 'cat-favorite activ' : 'cat-favorite'}">
-    <img src="/images/heart.gif" alt="Like"/>
+    <img src="images/heart.gif" alt="Like"/>
     </div>
     <div class="cat-rate"></div>
     <div class="cat-card-btns">
@@ -51,7 +51,7 @@ const generateCard = (cat) => {
     const generateCardView = (cat) => {
         return `<div class='cardView-popup'>
         <div class="cardView">
-        <div class="cardView-image" style ="background-image: url('${cat.image || '/images/default.gif'}')">
+        <div class="cardView-image" style ="background-image: url('${cat.image || 'images/default.gif'}')">
         </div>
         <div class="cardView-content">
             <div class="card-name">${cat.name}</div>
