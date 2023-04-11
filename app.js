@@ -1,4 +1,3 @@
-
 const page = document.getElementById('page');
 const content = document.querySelector('.content');
 const headerBtns = document.querySelector('.header_btns');
