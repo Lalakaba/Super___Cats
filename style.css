@@ -30,7 +30,7 @@
     width: 150px;
     height: 130px;
   }
-  .top-panel {
+  .top_panel {
     width: 90%;
     display: flex;
     flex-direction: row;
@@ -53,7 +53,7 @@
     font-size: 26px;
     font-weight: 700;
   }
-  .add-btn {
+  .add{
     position: relative;
     width: 40px;
     height: 40px;
@@ -62,7 +62,7 @@
     background-size: cover;
     border: none;
   }
-  .update-btn {
+  .update {
     border:none;
     position: relative;
     width: 50px;
@@ -95,7 +95,7 @@
     position: relative;
     height: 100%;
   }
-  .cat-card {
+  .cat_card {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -106,7 +106,7 @@
     padding: 15px;
   }
 
-  .cat-card:hover {
+  .cat_card:hover {
     /*наведение на карточку*/
     border: 2px solid var(--bg-color);
     box-shadow:  0 0 7px #fff, 0 0 10px #fff,0 0 21px #fff,
@@ -116,38 +116,38 @@
     0 0 102px #0066ff,
     0 0 151px #0066ff;
   }
-  .cat-card-image {
+  .cat_card_image {
     width: 100%;
     height: 100%;
     margin-bottom: 15px;
     position: relative;
   }
-  .cat-card-image > img {
+  .cat_card_image > img {
     /*картинка внутри карточки*/
     width: inherit;
     height: inherit;
     border-radius: 20px;
   }
-  .cat-card p {
+  .cat_card p {
     margin: 0;
     padding: 0;
     line-height: 2;
   }
-  .cat-description{
+  .cat_description{
     font-size: 16px;
     color: #b4b4b4;
 
   }
-  .cat-name {
+  .cat_name {
     font-size: 20px;
     font-weight: 600;
     text-align: center;
     color:#ffffff;
   }
-  .cat-favorite {
+  .cat_favorite {
     display: none;
 }
-  .cat-favorite.activ {
+  .cat_favorite.activity {
     position: absolute;
     display: block;
     margin-left: 25%;
@@ -155,15 +155,15 @@
     cursor: pointer;
   }
 
-  .cat-favorite.activ > img {
+  .cat_favorite.activity > img {
     width: 60px;
     height: 60px;
 }
-  .cat-card-btns {
+  .cat_card_btns {
     margin-top: 20px;
     margin-bottom: 30px;
   }
-  .cat-card-btns > button {
+  .cat_card_btns > button {
     background-color:#fff;
     font-weight: 600;
     width: 95px;
@@ -173,7 +173,7 @@
     padding: 5px;
     border-radius: 10px;
   }
-  .cat-card-btns > button:hover {
+  .cat_card_btns > button:hover {
     background-color: var(--bg-color);
     font-weight: 700;
     cursor: pointer;
@@ -186,7 +186,7 @@
     0 0 151px #0066ff;
   }
   /* Модальное окно - добавить кота"*/
-  .create-edit-modal-form {
+  .create_edit_modal_form {
     display: none;
   }
   .active {
@@ -209,13 +209,13 @@
     border-radius: 15px;
     z-index: 100;
   }
-  .create-edit-modal-title {
+  .create_edit_modal_title {
     display: flex;
     align-self: center;
     margin:2% auto;
 }
 
-  .modal-form > label {
+  .modal_form > label {
     font-size:18px;
     font-weight: 700;
     display: inline-block;
@@ -225,7 +225,7 @@
     position: relative;
   }
 
-  .modal-form > input {
+  .modal_form > input {
     border: none;
     outline: none;
     height: 25px;
@@ -240,7 +240,7 @@
     width: 50px;
     }
 
-  .modal-form > textarea {
+  .modal_form > textarea {
     border:none;
     font-size: 18px;
     padding-left: 15px;
@@ -249,7 +249,7 @@
     resize:vertical;
     border-radius: 20px;
   }
-  .button-form-submit {
+  .button_form_submit {
     display: block;
     width: 200px;
     height: 65px;
@@ -262,7 +262,7 @@
     border-radius: 20px;
     cursor: pointer;
   }
-  .button-form-close {
+  .button_form_close {
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -276,7 +276,7 @@
     right: -20px;
   }
   /*Модальное окно- Посмотреть кота*/
-  .cardView-popup {
+  .cardView_popup {
     background-color: rgba(0, 0, 0, 0.8);
     width: 100%;
     height: 100%;
@@ -306,7 +306,7 @@
     0 0 151px #ff0000;
   }
 
-  .cardView-image {
+  .cardView_image {
     width: 550px;
     height: 450px;
     margin-top: 20px;
@@ -314,7 +314,7 @@
     background-position: center;
     background-repeat: no-repeat;
   }
-  .cardView-content {
+  .cardView_content {
     display: flex;
     flex-direction: column;
     margin-top: 15px;
@@ -322,17 +322,17 @@
     width: 250px;
     position: relative;
   }
-  .card-name{
+  .card_name{
     font-size: 20px;
     font-weight: 700;
   }
-  .card-description,
-  .card-rate,
-  .card-age{
+  .card_description,
+  .card_rate,
+  .card_age{
     font-size: 16px;
     font-style: italic;
   }
-  .cardView-exit {
+  .cardView_exit {
     width: 40px;
     height: 40px;
     border-radius: 50%;

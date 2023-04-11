@@ -1,25 +1,25 @@
 
 const page = document.getElementById('page');
 const content = document.querySelector('.content');
-const headerBtns = document.querySelector('.header-btns');
+const headerBtns = document.querySelector('.header_btns');
 let store = window.localStorage;
 
 
 const generateCard = (cat) => {
-    return `<div class='cat-card'>
-    <div class="cat-card-image">
+    return `<div class='cat_card'>
+    <div class="cat_card_image">
     <img src=${cat.image !== '' ? cat.image : "images/default.gif"} alt="default" />
     </div>
-    <p class="cat-name">${cat.name}</p>
-    <p class="cat-description">${cat.description}</p>
-    <div class="${cat.favorite ? 'cat-favorite activ' : 'cat-favorite'}">
+    <p class="cat_name">${cat.name}</p>
+    <p class="cat_description">${cat.description}</p>
+    <div class="${cat.favorite ? 'cat_favorite activity' : 'cat_favorite'}">
     <img src="images/heart.gif" alt="Like"/>
     </div>
-    <div class="cat-rate"></div>
-    <div class="cat-card-btns">
-    <button class="cat-card-view" value=${cat.id}>Посмотреть</button>
-    <button class="cat-card-update" value=${cat.id}>Изменить</button>
-    <button class="cat-card-delete" value=${cat.id}>Удалить</button>
+    <div class="cat_rate"></div>
+    <div class="cat_card_btns">
+    <button class="cat_card_view" value=${cat.id}>Посмотреть</button>
+    <button class="cat_card_update" value=${cat.id}>Изменить</button>
+    <button class="cat_card_delete" value=${cat.id}>Удалить</button>
     </div>
     </div>`;
     };
@@ -27,9 +27,9 @@ const generateCard = (cat) => {
 
 
     const createCard = () => {
-        return `<div class="create-edit-modal-form">
-                    <h2 class="create-edit-modal-title">Добавить кота</h2>
-                    <form action="/target/" class="modal-form">
+        return `<div class="create_edit_modal_form">
+                    <h2 class="create_edit_modal_title">Добавить кота</h2>
+                    <form action="/target/" class="modal_form">
                         <label for="name">Имя</label>  <br />
                         <input id="name" name="name" placeholder="Имя" required /> <br />
                         <label for="image">Изображение</label> <br />
@@ -42,33 +42,34 @@ const generateCard = (cat) => {
                         <input type="checkbox" id="favorite" name="favorite"/><br />
                         <label>Описание</label> <br />
                         <textarea id="description" name="description" rows="3" placeholder="Описание"></textarea><br/>
-                        <button type="submit" class="button-form-submit"></button>
-                        <button type="reset" class="button-form-close"></button>
+                        <button type="submit" class="button_form_submit"></button>
+                        <button type="reset" class="button_form_close"></button>
                     </form>
                 </div>`;
     };
 
 
     const generateCardView = (cat) => {
-        return `<div class='cardView-popup'>
+        return `<div class='cardView_popup'>
         <div class="cardView">
-        <div class="cardView-image" style ="background-image: url('${cat.image || 'images/default.gif'}')">
+        <div class="cardView_image" style ="background-image: url('${cat.image || 'images/default.gif'}')">
         </div>
-        <div class="cardView-content">
-            <div class="card-name">${cat.name}</div>
-            <div class="card-age"><span class="age">Возраст:<span>${cat.age}</div>
-            <div class="card-rate">Сила: ${cat.rate}</div>
-            <div class="card-description">${cat.description}</div>
-            <button class="cardView-exit"></button>
+        <div class="cardView_content">
+            <div class="card_name">${cat.name}</div>
+            <div class="card_age"><span class="age">Возраст:<span>${cat.age}</div>
+            <div class="card_rate">Сила: ${cat.rate}</div>
+            <div class="card_description">${cat.description}</div>
+            <button class="cardView_exit"></button>
         </div>
         </div>
     </div>`;
         };
 
 
-const refreshCatsAndContent = () => {
+const refreshCats = () => {
 content.innerHTML = '';
 api.getAllCats().then((res) => {
+    console.log(res);
 store.setItem('cats', JSON.stringify(res));
     const cards = JSON.parse(store.getItem('cats')).reduce(
     (acc, el) => (acc += generateCard(el)),'');
@@ -76,20 +77,20 @@ store.setItem('cats', JSON.stringify(res));
 });
 };
 
-refreshCatsAndContent();
-headerBtns.addEventListener('click', (event) => {
+refreshCats();
 
+headerBtns.addEventListener('click', (event) => {
 if (event.target.tagName === 'BUTTON') {
     switch (event.target.className) {
-    case 'add-btn':
+    case 'add':
         const evt = event.target.value;
         const createCardForm = createCard();
         content.insertAdjacentHTML('afterbegin', createCardForm);
-        const modal = document.querySelector('.create-edit-modal-form');
+        const modal = document.querySelector('.create_edit_modal_form');
         modal.classList.add('active');
         const modalForm = document.querySelector('form');
-        const modalBtnOk = modalForm.querySelector('.button-form-submit');
-        const modalBtnClose = modalForm.querySelector('.button-form-close');
+        const modalBtnOk = modalForm.querySelector('.button_form_submit');
+        const modalBtnClose = modalForm.querySelector('.button_form_close');
         modalBtnOk.addEventListener('click', (evt) => {
         const forms = document.forms[0];
         event.preventDefault();
@@ -106,7 +107,7 @@ if (event.target.tagName === 'BUTTON') {
             id: getNewIdOfCat(),
             }).then((res) => {
             console.log(res);
-            refreshCatsAndContent();
+            refreshCats();
             });
         modal.classList.toggle('active');
         forms.reset();
@@ -118,8 +119,8 @@ if (event.target.tagName === 'BUTTON') {
         { once: true }
         );
         break;
-        case 'update-btn':
-        refreshCatsAndContent();
+        case 'update':
+        refreshCats();
         break;
         }
         }
@@ -128,13 +129,13 @@ if (event.target.tagName === 'BUTTON') {
 content.addEventListener('click', (event) => {
 if (event.target.tagName === 'BUTTON') {
     switch (event.target.className) {
-    case 'cat-card-view':
+    case 'cat_card_view':
         console.log(event.target.value);
         let catView = getViewCardInLocal(event.target.value);
         console.log(catView);
         const cardViewPopup = generateCardView(catView);
         content.insertAdjacentHTML('afterbegin', cardViewPopup);
-        const modalView = document.querySelector('.cardView-popup');
+        const modalView = document.querySelector('.cardView_popup');
 
         const modalViewBtn = modalView.querySelector('button');
         modalViewBtn.addEventListener('click',(evt) => {
@@ -143,16 +144,16 @@ if (event.target.tagName === 'BUTTON') {
         { once: true }
         );
         break;
-        case 'cat-card-update':
+        case 'cat_card_update':
         const createCardForm = createCard();
         content.insertAdjacentHTML('afterbegin', createCardForm);
-        const modal = document.querySelector('.create-edit-modal-form');
-        const popupTitle = document.querySelector('.create-edit-modal-title');
+        const modal = document.querySelector('.create_edit_modal_form');
+        const popupTitle = document.querySelector('.create_edit_modal_title');
         popupTitle.textContent = 'Изменить';
         modal.classList.toggle('active');
         const modalForm = document.querySelector('form');
         const modalBtn = modalForm.querySelector('button');
-        const modalBtnClose = modalForm.querySelector('.button-form-close');
+        const modalBtnClose = modalForm.querySelector('.button_form_close');
         const catUpdate = getViewCardInLocal(event.target.value);
         const forms = document.forms[0];
         const formElements = document.forms[0].elements;
@@ -176,7 +177,7 @@ if (event.target.tagName === 'BUTTON') {
             const favorite = cat.favorite ? (cat.favorite = true) : (cat.favorite = false);
             api.updateCat({ ...cat, favorite: favorite }).then((res) => {
             console.log(res);
-            refreshCatsAndContent();
+            refreshCats();
             });
             modal.classList.toggle('active');
             forms.reset();
@@ -187,10 +188,10 @@ if (event.target.tagName === 'BUTTON') {
         modal.remove();
         });
         break;
-        case 'cat-card-delete':
+        case 'cat_card_delete':
         api.getDeleteCat(event.target.value).then((res) => {
         console.log(res);
-        refreshCatsAndContent();
+        refreshCats();
         });
         break;
     }
